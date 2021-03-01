@@ -10,4 +10,8 @@ namespace AspNetCoreContentLocalization.Data.Repositories.Abstractions
   {
     IEnumerable<LocalizedBook> GetAll(string cultureCode);
   }
+    public interface ILocalizedLibraryRepository
+    {
+        IEnumerable<LocalizedLibrary> GetAll(string cultureCode);
+    }
 }

@@ -38,6 +38,11 @@ namespace AspNetCoreContentLocalization
             services.AddScoped<ILocalizationRepository, LocalizationRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<ILocalizedBookRepository, LocalizedBookRepository>();
+
+
+            services.AddScoped<ILibraryRepository, LibraryRepository>();
+            services.AddScoped<ILocalizedLibraryRepository, LocalizedLibraryRepository>();
+
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddMvc(x => x.EnableEndpointRouting = false).AddViewLocalization().AddDataAnnotationsLocalization();
 
@@ -50,7 +55,7 @@ namespace AspNetCoreContentLocalization
                 applicationBuilder.UseDeveloperExceptionPage();
             }
 
-            CultureInfo[] supportedCultures = new[] {  new CultureInfo("tr"), new CultureInfo("de"), new CultureInfo("en") };
+            CultureInfo[] supportedCultures = new[] { new CultureInfo("tr"), new CultureInfo("de"), new CultureInfo("en") };
 
             applicationBuilder.UseRequestLocalization(
               new RequestLocalizationOptions()
@@ -67,6 +72,10 @@ namespace AspNetCoreContentLocalization
                   routeBuilder.MapRoute("Create", "{controller=Books}/add", new { action = "AddOrEdit" });
                   routeBuilder.MapRoute("Update", "{controller=Books}/edit/{id?}", new { action = "AddOrEdit" });
                   routeBuilder.MapRoute("Default", "{controller=Books}/{action=Index}/{id?}");
+
+                  routeBuilder.MapRoute("CreateL", "{controller=Librarys}/add", new { action = "AddOrEdit" });
+                  routeBuilder.MapRoute("UpdateL", "{controller=Librarys}/edit/{id?}", new { action = "AddOrEdit" });
+                  routeBuilder.MapRoute("DefaultL", "{controller=Librarys}/{action=Index}/{id?}");
               }
             );
         }

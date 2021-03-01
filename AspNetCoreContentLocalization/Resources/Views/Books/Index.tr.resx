@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add/Edit Book" xml:space="preserve">
-    <value>Додавання/редагування книги</value>
+  <data name="Add book" xml:space="preserve">
+    <value>Kitap Ekle</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Скасувати</value>
+  <data name="Author" xml:space="preserve">
+    <value>Yazar</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Зберегти</value>
+  <data name="Books" xml:space="preserve">
+    <value>Kitaplar</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Yıl</value>
   </data>
 </root>

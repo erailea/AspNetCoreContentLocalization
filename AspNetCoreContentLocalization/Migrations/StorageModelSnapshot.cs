@@ -69,6 +69,26 @@ namespace AspNetCoreContentLocalization.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cultures");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "tr",
+                            Name = "Türkçe"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Code = "en",
+                            Name = "English"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Code = "de",
+                            Name = "Deutsch"
+                        });
                 });
 
             modelBuilder.Entity("AspNetCoreContentLocalization.Data.Entities.Library", b =>

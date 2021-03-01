@@ -34,5 +34,30 @@ namespace AspNetCoreContentLocalization.Data.Repositories.Defaults
     public void Update(Book book)
     {
     }
-  }
+    }
+    public class LibraryRepository : ILibraryRepository
+    {
+        private Storage storage;
+
+        public LibraryRepository(Storage storage)
+        {
+            this.storage = storage;
+        }
+
+        public Library GetById(int id)
+        {
+            return this.storage.Librarys
+              .Include(b => b.Name).ThenInclude(ls => ls.Localizations)
+              .FirstOrDefault(b => b.Id == id);
+        }
+
+        public void Create(Library book)
+        {
+            this.storage.Librarys.Add(book);
+        }
+
+        public void Update(Library book)
+        {
+        }
+    }
 }

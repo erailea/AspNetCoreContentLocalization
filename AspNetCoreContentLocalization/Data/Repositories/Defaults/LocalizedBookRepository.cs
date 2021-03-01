@@ -47,4 +47,38 @@ namespace AspNetCoreContentLocalization.Data.Repositories.Defaults
                     }).ToList();
         }
     }
+    public class LocalizedLibraryRepository : ILocalizedLibraryRepository
+    {
+        private Storage storage;
+
+        public LocalizedLibraryRepository(Storage storage)
+        {
+            this.storage = storage;
+        }
+
+        public IEnumerable<LocalizedLibrary> GetAll(string cultureCode)
+        {
+            //return this.storage.Books.Select(
+            //  b => new LocalizedBook()
+            //  {
+            //    Id = b.Id,
+            //    Name = b.Name.Localizations.FirstOrDefault(l => l.CultureCode == cultureCode).Value,
+            //    Description = b.Description.Localizations.FirstOrDefault(l => l.CultureCode == cultureCode).Value,
+            //    Author = b.Author.Localizations.FirstOrDefault(l => l.CultureCode == cultureCode).Value,
+            //    Year = b.Year
+            //  }
+            //).ToList();
+
+            var cultureId = this.storage.Cultures.Where(x => x.Code == cultureCode).Select(x => x.Id).FirstOrDefault();
+
+            return (from b in this.storage.Librarys
+                    join lName in this.storage.Localizations on b.NameId equals lName.LocalizationSetId
+                    where lName.CultureId == cultureId
+                    select new LocalizedLibrary()
+                    {
+                        Id = b.Id,
+                        Name = lName.Value
+                    }).ToList();
+        }
+    }
 }

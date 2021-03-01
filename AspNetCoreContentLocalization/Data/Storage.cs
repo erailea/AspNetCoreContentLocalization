@@ -49,6 +49,13 @@ namespace AspNetCoreContentLocalization.Data
                   .OnDelete(DeleteBehavior.ClientSetNull);
               }
             );
+
+
+            modelBuilder.Entity<Culture>().HasData(
+                new Culture { Code = "tr", Id = 1, Name = "Türkçe" },
+                new Culture { Code = "en", Id = 2, Name = "English" },
+                new Culture { Code = "de", Id = 3, Name = "Deutsch" }
+            );
         }
     }
 }
